@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f6ffff656af84c43b543f0407dd6a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _nameFood: Peach
 --- !u!64 &3246010860179175778
 MeshCollider:
   m_ObjectHideFlags: 0

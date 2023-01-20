@@ -25,7 +25,7 @@ public class ConveyerBelt : MonoBehaviour
     {
         this.body = GetComponent<Rigidbody>();
         pos = transform.position;
-        meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderer = GetComponent<MeshRenderer>();       
     }
     public void FixedUpdate()
     {

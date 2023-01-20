@@ -10,6 +10,7 @@ using static UnityEngine.GraphicsBuffer;
 public class PickUpFood : MonoBehaviour
 {
     public UnityAction<float> ActionsWithFood;
+    public UnityAction<PickFood> PutPickFood;
     [SerializeField] private Camera _camera;
     [SerializeField] private Vector3 _resetPostion;
     [SerializeField] private Transform _playerHand;
@@ -35,6 +36,7 @@ public class PickUpFood : MonoBehaviour
         ActionsWithFood?.Invoke(0.5f);
         _basketFood.PutFood(_currentFood.PickFood);
         _currentFood.PickFood.FreeGravity();
+        PutPickFood?.Invoke(_currentFood.PickFood);
         _currentFood = null;
         _isPickUp = false;
     }

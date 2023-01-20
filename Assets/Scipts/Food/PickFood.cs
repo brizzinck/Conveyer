@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class PickFood : MonoBehaviour
 {
+    [SerializeField] private string _nameFood;
     private Collider _collider;
     private Rigidbody _rigidbody;
+
+    public string NameFood { get => _nameFood; }
+
     public void FreeGravity()
     {
         _collider.isTrigger = false;
