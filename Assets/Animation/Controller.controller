@@ -182,7 +182,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 2c79fb2ac2600944284d7b8007481566, type: 3}
+  m_Motion: {fileID: 7400000, guid: 4cce40722fffdb947a8c6a48db712eac, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -195,7 +195,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PickFruit
+  m_Name: PickFood
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
