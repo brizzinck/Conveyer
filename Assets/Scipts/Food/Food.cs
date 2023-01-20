@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class Food : MonoBehaviour
 {
-    [SerializeField] private GameObject _pickFood;
+    public bool IsPick = false;
+    [SerializeField] private PickFood[] _pickFoods;
+    private PickFood _pickFood;
+    public PickFood PickFood { get => _pickFood; }
 
-    public GameObject PickFood { get => _pickFood; }
+    private void Start()
+    {
+        _pickFood = Instantiate(_pickFoods[Random.Range(0, _pickFoods.Length)], 
+            transform.position, Quaternion.identity, transform);
+    }
 }

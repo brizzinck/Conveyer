@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Plugins/ScrollingShader/Scenes/0 - Showcase.unity
-    guid: d05df37a041dac342b8e89bb1bbd0882
+    path: Assets/Scene/GameScene.unity
+    guid: f026549062b4c044c91205013389f0de
   m_configObjects: {}

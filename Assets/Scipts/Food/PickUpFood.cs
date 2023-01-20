@@ -18,18 +18,25 @@ public class PickUpFood : MonoBehaviour
     [SerializeField] private BasketFood _basketFood;
     private Food _currentFood = null;
     private Vector3 _centerHand = new Vector3(-0.0128f, 0.0306f, 0.0571f);
+    private bool _isPickUp = false;
+
+    public bool IsPickUp { get => _isPickUp; }
+
     public void SetStopConveyor() => ActionsWithFood?.Invoke(0);
     public void TakeFood()
     {
         if (_currentFood == null) return;
+        _isPickUp = true;
         _currentFood.PickFood.transform.parent = _playerHand;
         _currentFood.PickFood.transform.localPosition = _centerHand;
     }
     public void PutFood()
     {
         ActionsWithFood?.Invoke(0.5f);
-        _basketFood.PutFood(_currentFood);
+        _basketFood.PutFood(_currentFood.PickFood);
+        _currentFood.PickFood.FreeGravity();
         _currentFood = null;
+        _isPickUp = false;
     }
     private void Update()
     {
@@ -49,7 +56,9 @@ public class PickUpFood : MonoBehaviour
             {
                 if (hit.collider.TryGetComponent(out Food food))
                 {
+                    if (food.IsPick) return;
                     _currentFood = food;
+                    food.IsPick = true;
                     AnimationController.PickUp(_currentFood.transform);
                 }
             }
