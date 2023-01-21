@@ -31,6 +31,7 @@ public class Tasker : MonoBehaviour
     {  
         if (pickFood.NameFood == _nameTaskFood)
         {
+            UIController.AddScore();
             _pickFoods.Add(pickFood);
             int current = _countTaskFood - _pickFoods.Count;
             _taskText.text = "Collect " + current + " " + _nameTaskFood;
