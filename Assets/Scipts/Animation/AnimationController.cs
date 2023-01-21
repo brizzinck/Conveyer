@@ -14,10 +14,8 @@ public class AnimationController : MonoBehaviour
             Quaternion.LookRotation(direction), Time.deltaTime * speed);
         turnObject.rotation = new Quaternion(0, turnObject.rotation.y, 0, turnObject.rotation.w);
     }
-    public static void PickUp(Transform transform) 
-    {
-        animator.SetTrigger("PickUp");
-    } 
+    public static void PickUp() => animator.SetTrigger("PickUp");
     public static void Finish() => animator.SetTrigger("Finish");
+    public static void Lost() => animator.SetTrigger("Lost");
     private void Start() => animator = _animator;
 }

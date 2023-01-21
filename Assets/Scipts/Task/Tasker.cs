@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Tasker : MonoBehaviour
 {
     [SerializeField] private TMPro.TextMeshProUGUI _taskText;
+    [SerializeField] private Button _nextButton;
     [SerializeField] private PickUpFood _pickUpFood;
     [SerializeField] private PickFood[] _allPickFoods;
     private List<PickFood> _pickFoods = new List<PickFood>();
@@ -30,6 +31,15 @@ public class Tasker : MonoBehaviour
         if (_pickFoods.Count >= _countTaskFood)
         {
             _taskText.text = "Level Passed";
+            StartCoroutine(Finish());
+            AnimationController.Finish();
         }
+    }
+    private IEnumerator Finish()
+    {
+        yield return new WaitForSeconds(3.3f);
+        CameraToPlayer.GoPlayer();
+        yield return new WaitForSeconds(.5f);
+        _nextButton.gameObject.SetActive(true);
     }
 }

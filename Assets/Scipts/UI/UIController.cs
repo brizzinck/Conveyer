@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] private Button _start;
+    [SerializeField] private Button _restart;
     private void Start()
     {
-        _start.onClick.AddListener(Starting);
+        _restart.onClick.AddListener(ReStarting);
     }
-    private void Starting()
+    private void ReStarting()
     {
-
-        _start.gameObject.SetActive(false);
+        SceneManager.LoadScene(0);
     }
 }

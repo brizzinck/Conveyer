@@ -20,9 +20,8 @@ public class PickUpFood : MonoBehaviour
     private Food _currentFood = null;
     private Vector3 _centerHand = new Vector3(-0.0128f, 0.0306f, 0.0571f);
     private bool _isPickUp = false;
-
     public bool IsPickUp { get => _isPickUp; }
-
+    public void SetPickUping() => _isPickUp = true;
     public void SetStopConveyor() => ActionsWithFood?.Invoke(0);
     public void TakeFood()
     {
@@ -46,9 +45,9 @@ public class PickUpFood : MonoBehaviour
             new Vector3(_currentFood.transform.position.x, 
             _currentFood.transform.position.y, 
             _currentFood.transform.position.z), 25);
-        else 
+        else
             AnimationController.TurnToObject(_parent, _resetPostion, 25);
-        if (_currentFood != null) return;
+        if (_currentFood != null || _isPickUp) return;
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
@@ -61,7 +60,7 @@ public class PickUpFood : MonoBehaviour
                     if (food.IsPick) return;
                     _currentFood = food;
                     food.IsPick = true;
-                    AnimationController.PickUp(_currentFood.transform);
+                    AnimationController.PickUp();
                 }
             }
         }
