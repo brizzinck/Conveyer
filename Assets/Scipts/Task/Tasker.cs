@@ -25,8 +25,18 @@ public class Tasker : MonoBehaviour
             _nameTaskFood = _allPickFoods[Random.Range(0, _allPickFoods.Length)].NameFood;
             _countTaskFood = Random.Range(1, 6);
         }
-        _taskText.text = "Collect " + _countTaskFood + " " + _nameTaskFood;
+        ChangeText(_countTaskFood);
     }
+
+    private void ChangeText(int count)
+    {
+        _taskText.text = "Collect " + count + " " + _nameTaskFood;
+        if (count > 1)
+            _taskText.text = _taskText.text = "Collect " + count + " " + _nameTaskFood + "s";
+        if (count == 1)
+            _taskText.text = _taskText.text = "Collect " + count + " " + _nameTaskFood;
+    }
+
     private void CheckTaskPickFood(PickFood pickFood)
     {  
         if (pickFood.NameFood == _nameTaskFood)
@@ -34,7 +44,7 @@ public class Tasker : MonoBehaviour
             UIController.AddScore();
             _pickFoods.Add(pickFood);
             int current = _countTaskFood - _pickFoods.Count;
-            _taskText.text = "Collect " + current + " " + _nameTaskFood;
+            ChangeText(_countTaskFood - _pickFoods.Count);
         }
         if (_pickFoods.Count >= _countTaskFood)
         {
