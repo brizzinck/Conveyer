@@ -21,6 +21,8 @@ public class PickUpFood : MonoBehaviour
     private Vector3 _centerHand = new Vector3(-0.0128f, 0.0306f, 0.0571f);
     private bool _isPickUp = false;
     public bool IsPickUp { get => _isPickUp; }
+    public BasketFood BasketFood { get => _basketFood; }
+
     public void SetPickUping() => _isPickUp = true;
     public void SetStopConveyor() => ActionsWithFood?.Invoke(0);
     public void TakeFood()
