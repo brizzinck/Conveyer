@@ -37,9 +37,9 @@ public class PickUpFood : MonoBehaviour
         ActionsWithFood?.Invoke(0.5f);
         _basketFood.PutFood(_currentFood.PickFood);
         _currentFood.PickFood.FreeGravity();
+        _isPickUp = false;
         PutPickFood?.Invoke(_currentFood.PickFood);
         _currentFood = null;
-        _isPickUp = false;
     }
     private void Update()
     {

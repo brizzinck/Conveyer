@@ -44,7 +44,7 @@ public class Tasker : MonoBehaviour
             UIController.AddScore();
             _pickFoods.Add(pickFood);
             int current = _countTaskFood - _pickFoods.Count;
-            ChangeText(_countTaskFood - _pickFoods.Count);
+            ChangeText(current);
         }
         if (_pickFoods.Count >= _countTaskFood)
         {
@@ -55,6 +55,7 @@ public class Tasker : MonoBehaviour
         }
         else if (_pickUpFood.BasketFood.BasketFull())
         {
+            _pickUpFood.SetPickUping();
             AnimationController.Lost();
         }
     }
